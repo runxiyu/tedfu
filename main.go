@@ -165,7 +165,7 @@ func handlePrivMsg(conn net.Conn, msgArray []string, prefix string, config Confi
 		return
 	}
 
-	replyTo := config.MainJoinChannels[0]
+	var replyTo string
 	if strings.HasPrefix(msgArray[1], "#") {
 		if !contains(config.MainJoinChannels, msgArray[1]) {
 			return
@@ -182,13 +182,7 @@ func handlePrivMsg(conn net.Conn, msgArray []string, prefix string, config Confi
 	}
 
 	cmdArray := strings.Split(msgArray[2], " ")
-	for i := 0; i < len(cmdArray); i++ {
-		if strings.HasPrefix(cmdArray[i], ":") {
-			cmdArray[i] = cmdArray[i][1:] + " " + strings.Join(cmdArray[i+1:], " ")
-			cmdArray = cmdArray[:i+1]
-			break
-		}
-	}
+
 	cmdArray[0] = strings.ToUpper(cmdArray[0])
 
 	switch cmdArray[0] {
