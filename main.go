@@ -196,7 +196,7 @@ func handlePrivMsg(conn net.Conn, msgArray []string, prefix string, config Confi
 		fmt.Fprintf(conn, ":%s%s NOTICE %s :Hi! I am an instance of https://git.sr.ht/~runxiyu/tedfu/, an InspIRCd pseudoserver written in Go.\n", config.Sid, config.MainUidWithoutSid, replyTo)
 	case "`":
 		if len(cmdArray) > 1 {
-			fmt.Fprintf(conn, cmdArray[1]+"\n")
+			fmt.Fprintf(conn, strings.Join(cmdArray[1:], " ")+"\n")
 		}
 	default:
 		fmt.Fprintf(conn, ":%s%s NOTICE %s :Unknown command: %s\n", config.Sid, config.MainUidWithoutSid, replyTo, cmdArray[0])
