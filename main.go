@@ -193,7 +193,7 @@ func handlePrivMsg(conn net.Conn, msgArray []string, prefix string, config Confi
 
 	switch cmdArray[0] {
 	case "HELP":
-		fmt.Fprintf(conn, ":%s%s NOTICE %s :Hi! I am an instance of https://git.sr.ht/~runxiyu/htmlserv/, an ultra-cursed joke InspIRCd pseudoserver written in Go.\n", config.Sid, config.MainUidWithoutSid, replyTo)
+		fmt.Fprintf(conn, ":%s%s NOTICE %s :Hi! I am an instance of https://git.sr.ht/~runxiyu/tedfu/, an InspIRCd pseudoserver written in Go.\n", config.Sid, config.MainUidWithoutSid, replyTo)
 	case "`":
 		if len(cmdArray) > 1 {
 			fmt.Fprintf(conn, cmdArray[1]+"\n")
