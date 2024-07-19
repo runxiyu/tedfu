@@ -10,7 +10,7 @@ import (
 	"os"
 	"strings"
 	"time"
-	// "log"
+	"log"
 )
 
 type Config struct {
@@ -87,6 +87,8 @@ func loadConfig(filename string) (Config, error) {
 			config.MainNickTs = value
 		case "connect":
 			config.Connect = value
+		default:
+			log.Printf("Unknown configuration option %s\n", key)
 		}
 	}
 	if err := scanner.Err(); err != nil {
