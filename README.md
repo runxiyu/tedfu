@@ -1,4 +1,4 @@
 # tedfu
 
-Sometime... sometime in the future... this will be a services package. For now,
-it's a stupid pseudo-server that does nothing.
+I guess these are some attempts at state-synchronization, redundant
+links, and mesh-network message-passing.
